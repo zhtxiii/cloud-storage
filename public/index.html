@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云盘</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">☁️ 云盘</h1>
+            <div class="actions">
+                <button id="newFolderBtn" class="btn btn-secondary">
+                    <span class="icon">📁</span> 新建文件夹
+                </button>
+                <label class="btn btn-primary upload-btn">
+                    <span class="icon">📤</span> 上传文件
+                    <input type="file" id="fileInput" multiple hidden>
+                </label>
+                <label class="btn btn-primary upload-btn">
+                    <span class="icon">📂</span> 上传文件夹
+                    <input type="file" id="folderInput" webkitdirectory hidden>
+                </label>
+            </div>
+        </header>
+
+        <nav class="breadcrumb" id="breadcrumb">
+            <a href="#" data-path="" class="breadcrumb-item">根目录</a>
+        </nav>
+
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-content">
+                <span class="drop-icon">📥</span>
+                <p>拖拽文件到这里上传</p>
+            </div>
+        </div>
+
+        <div class="file-list" id="fileList">
+            <div class="loading">加载中...</div>
+        </div>
+
+        <div class="upload-progress" id="uploadProgress" hidden>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">上传中...</span>
+        </div>
+    </div>
+
+    <!-- 新建文件夹弹窗 -->
+    <div class="modal" id="newFolderModal" hidden>
+        <div class="modal-content">
+            <h3>新建文件夹</h3>
+            <input type="text" id="folderNameInput" placeholder="文件夹名称" class="input">
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelFolderBtn">取消</button>
+                <button class="btn btn-primary" id="confirmFolderBtn">创建</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
